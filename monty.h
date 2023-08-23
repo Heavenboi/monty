@@ -11,7 +11,13 @@
 #include <sys/types.h>
 
 int dprintf(int fd, const char *format, ...);
-void check_arguments(int argc); 
+ssize_t getline(char **lineptr, size_t *n, FILE *stream);
+void check_arguments(int argc);
+void get_stream_fail(char *filename);
+void get_stream(char *filename);
+void init_args();
+void malloc_failed(void);
+FILE* fdopen(int fd, const char *mode);
 /*void file_accessible(char *filename)*/
 
 /**
@@ -54,7 +60,7 @@ typedef struct arg_check
 {
 	FILE *stream;
 	char *line;
-} arg_t
-extern arg_t *arguments
+} arg_t;
+extern arg_t *arguments;
 
 #endif
