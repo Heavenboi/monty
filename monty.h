@@ -8,59 +8,51 @@
 #include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <sys/types.h>
 
 int dprintf(int fd, const char *format, ...);
 ssize_t getline(char **lineptr, size_t *n, FILE *stream);
 void check_arguments(int argc);
 void get_stream_fail(char *filename);
 void get_stream(char *filename);
-void init_args();
+void init_args(void); /* Initialize arguments structure */
 void malloc_failed(void);
-FILE* fdopen(int fd, const char *mode);
-/*void file_accessible(char *filename)*/
+FILE *fdopen(int fd, const char *mode);
+/* void file_accessible(char *filename) */
 
 /**
- * struct stack_s - doubly linked list representation of a stack (or queue)
- * @n: integer
- * @prev: points to the previous element of the stack (or queue)
- * @next: points to the next element of the stack (or queue)
- *
- * Description: doubly linked list node structure
- * for stack, queues, LIFO, FIFO
+ * struct stack_s - Stack structure
+ * @n: Integer value stored in the node
+ * @next: Pointer to the next element in the stack
  */
-typedef struct stack_s
+struct stack_s
 {
-        int n;
-        struct stack_s *prev;
-        struct stack_s *next;
-} stack_t;
+    int n;
+    struct stack_s *next;
+};
 
 /**
- * struct instruction_s - opcode and its function
- * @opcode: the opcode
- * @f: function to handle the opcode
- *
- * Description: opcode and its function
- * for stack, queues, LIFO, FIFO
+ * struct instruction_s - Function pointers for Monty bytecode instructions
+ * @opcode: The operation code
+ * @f: Function pointer to the corresponding function
  */
 typedef struct instruction_s
 {
-        char *opcode;
-        void (*f)(stack_t **stack, unsigned int line_number);
+    char *opcode;
+    void (*f)(struct stack_s **stack, unsigned int line_number);
 } instruction_t;
 
 /**
- * struct arg_check- check if file accessible
- * @stream: coonects to the file stream
- * @line: string expected to be the instruction
- *
+ * struct arg_check - Arguments structure
+ * @stream: File stream
+ * @line: Line buffer
  */
 typedef struct arg_check
 {
-	FILE *stream;
-	char *line;
+    FILE *stream;
+    char *line;
 } arg_t;
+
 extern arg_t *arguments;
 
-#endif
+#endif /* MONTY_H */
+
