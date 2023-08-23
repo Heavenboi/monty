@@ -1,4 +1,4 @@
-i#include "monty.h"
+#include "monty.h"
 
 /**
  * check_arguments- checkzs the number of arguments put by the user
