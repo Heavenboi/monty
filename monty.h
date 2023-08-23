@@ -12,6 +12,7 @@
 
 int dprintf(int fd, const char *format, ...);
 void check_arguments(int argc); 
+/*void file_accessible(char *filename)*/
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -42,5 +43,18 @@ typedef struct instruction_s
         char *opcode;
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+
+/**
+ * struct arg_check- check if file accessible
+ * @stream: coonects to the file stream
+ * @line: string expected to be the instruction
+ *
+ */
+typedef struct arg_check
+{
+	FILE *stream;
+	char *line;
+} arg_t
+extern arg_t *arguments
 
 #endif
