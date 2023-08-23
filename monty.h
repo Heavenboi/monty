@@ -11,6 +11,7 @@
 #include <sys/types.h>
 
 int dprintf(int fd, const char *format, ...);
+void check_arguments(int argc); 
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)

@@ -11,10 +11,7 @@ int main(int argc, char  *argv[])
 /**
  * checking if the user has put 2 arguments
  */
-	if (argc != 2)
-	{
-		dprintf(2,"USAGE: monty file\n");
-		exit(EXIT_FAILURE);
-	}
+	check_arguments(argc);
+	
 	return (0);
 }
