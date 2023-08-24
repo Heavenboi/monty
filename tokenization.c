@@ -3,7 +3,9 @@
 void tokenization(void)
 {
 	int i = 0;
-	char *delims = " \n", token = NULL, *linecpy = NULL;
+	char* token;
+	char *linecpy;
+	char *delims = " \n";
 	
 	linecpy = malloc(sizeof(char) * (strlen(arguments -> line) + 1));
 	strcpy(linecpy, arguments -> line);
