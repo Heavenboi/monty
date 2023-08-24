@@ -17,6 +17,7 @@ void get_stream(char *filename);
 void init_args(void); /* Initialize arguments structure */
 void malloc_failed(void);
 FILE *fdopen(int fd, const char *mode);
+void token(void);
 /* void file_accessible(char *filename) */
 
 /**
@@ -52,8 +53,9 @@ typedef struct arg_check
     char *line;
     unsigned int line_num;
     int tokens_memory;
-    char **tokens_read;
+    char **tokens;
     instruction_t *instruction;
+    int n_token;
 } arg_t;
 
 extern arg_t *arguments;
