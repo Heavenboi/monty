@@ -14,6 +14,12 @@ void init_args(void)
 	if (arguments == NULL)
 		malloc_failed();
 
+	arguments ->instruction = malloc(sizeof(instruction_t));
+	if (arguments -> instruction == NULL)
+		malloc_failed();
+
 	arguments->stream = NULL;
 	arguments->line = NULL;
+	arguments -> tokens_memory = 0;
+	arguments -> line_num = 0;
 }

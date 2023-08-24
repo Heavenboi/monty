@@ -50,6 +50,10 @@ typedef struct arg_check
 {
     FILE *stream;
     char *line;
+    unsigned int line_num;
+    int tokens_memory;
+    char **tokens_read;
+    instruction_t *instruction;
 } arg_t;
 
 extern arg_t *arguments;
