@@ -9,7 +9,7 @@ void wrong_info(void)
 }
 
 
-void get_instruction(void)
+void info_get(void)
 {
 	int i = 0;
 	instruction_t instructions[] = {

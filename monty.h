@@ -17,6 +17,12 @@ void get_stream(char *filename);
 void init_args(void); /* Initialize arguments structure */
 void malloc_failed(void);
 FILE *fdopen(int fd, const char *mode);
+void closing_file_stream(void);
+void freeing_token_memo(void);
+void wrong_info(void);
+void info_get(void);
+void get_stream_fail(char *filename);
+void get_stream(char *filename);
 /* void file_accessible(char *filename) */
 
 /**
